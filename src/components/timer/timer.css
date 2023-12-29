@@ -1,0 +1,30 @@
+/* Timer */
+
+.timer-container,
+.timer-animation {
+	width: 100%;
+	max-width: 300px;
+	max-height: 300px;
+	aspect-ratio: 1 / 1;
+	border-radius: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+
+.timer-container {
+	background: linear-gradient(var(--dark-navy), var(--dark-navy)) padding-box,
+		linear-gradient(to bottom right, var(--dark-navy) 30%, var(--light-navy)) border-box;
+	border: 1rem solid transparent;
+	margin: 1.5rem 0;
+	padding: 0.5rem;
+	box-shadow: 14px 17px 16px 9px var(--dark-navy), -14px -23px 35px 16px var(--light-navy);
+}
+
+.timer-animation {
+	border: 1rem solid transparent;
+	border-radius: 50%;
+	background: linear-gradient(var(--dark-navy), var(--dark-navy)) content-box no-repeat,
+		conic-gradient(var(--primary) 100%, 0, var(--dark-navy)) border-box;
+}

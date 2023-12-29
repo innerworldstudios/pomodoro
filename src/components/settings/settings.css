@@ -1,0 +1,120 @@
+/* Settings */
+
+.settings-container {
+	position: absolute;
+	background-color: var(--white);
+	max-width: 500px;
+	width: 100%;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: 2rem auto;
+	z-index: 2;
+	border-radius: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	display: none;
+}
+
+.settings-container-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem;
+}
+
+.settings-container-time {
+	padding: 1rem;
+}
+
+.settings-timer-option {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.settings-timer-option-adjuster {
+	display: flex;
+}
+
+.settings-arrow-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-left: 1rem;
+}
+
+.settings-arrow-container > * {
+	padding: 0.25rem 0;
+}
+
+.input:focus {
+	outline: none;
+	border: none;
+}
+
+.input::-webkit-inner-spin-button,
+.input::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.input::-moz-focus-inner {
+	border: 0;
+}
+
+.input::-ms-clear,
+.input::-ms-reveal {
+	display: none;
+}
+
+.input {
+	background-color: var(--light-grey);
+	border: none;
+	border-radius: 0.25rem;
+	width: 100px;
+}
+
+.settings-font {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.font-selection-container {
+	display: flex;
+}
+
+.font-selection,
+.font-selection-current {
+	border-radius: 50%;
+	height: 50px;
+	width: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.font-selection {
+	background-color: var(--light-grey);
+}
+
+.font-selection-current {
+	background-color: var(--dark-navy);
+	color: var(--white);
+}
+
+.kumbh-sans {
+	font-family: 'Kumbh Sans', sans-serif;
+}
+
+.roboto-slab {
+	font-family: 'Roboto Slab', sans-serif;
+}
+
+.space-mono {
+	font-family: 'Space Mono', sans-serif;
+}

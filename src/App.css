@@ -1,0 +1,91 @@
+@import '../node_modules/modern-normalize/modern-normalize.css';
+
+/* Theme styles */
+
+:root {
+	--primary: #f87070;
+	--primary-hover: #f98d8d;
+	--aqua: #70f3f8;
+	--purple: #d881f8;
+	--lilac: #d7e0ff;
+	--navy: #1e213f;
+	--white: #ffffff;
+	--off-white: #eff1fa;
+	--grey: #4a4f6c;
+	--light-navy: #2e325a;
+	--dark-navy: #161932;
+	--light-grey: #eff1fa;
+}
+
+h1 {
+	font-size: clamp(2rem, 4vw, 4rem);
+	margin: 0;
+}
+
+h2 {
+	font-size: clamp(1.5rem, 2vw, 2rem);
+	margin-top: 0;
+}
+
+h3 {
+	font-size: clamp(1.25rem, 2vw, 1.75rem);
+	margin: 0;
+}
+
+h3,
+h4 {
+	text-transform: uppercase;
+}
+
+h4 {
+	font-size: clamp(1rem, 2vw, 1.5rem);
+	margin: 0;
+}
+
+.text-large {
+	font-size: clamp(0.85rem, 2vw, 1rem);
+	margin: 0;
+}
+
+.text {
+	font-size: clamp(0.75rem, 2vw, 0.85rem);
+}
+
+h1,
+h2,
+h3,
+h4,
+.text-black,
+.text,
+button {
+	color: var(--lilac);
+}
+
+.text-black {
+	color: var(--dark-navy);
+}
+
+body {
+	background-color: var(--navy);
+	font-family: 'Kumbh Sans', sans-serif;
+	font-weight: bold;
+}
+
+.container {
+	max-width: 410px;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+	padding: 1rem;
+}
+
+.cursor-pointer {
+	cursor: pointer;
+}
+
+.nowrap {
+	white-space: nowrap;
+}
