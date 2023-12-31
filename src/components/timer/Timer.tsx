@@ -1,28 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import './timer.css';
 
-const Timer: React.FC = () => {
-	const initialTime = 60 * 1000; // 1 minute in milliseconds
+const Timer = () => {
+	const initialTime = 180 * 1000; // 2 minutes in milliseconds
 	const [timeRemaining, setTimeRemaining] = useState(initialTime);
 	const [timerRunning, setTimerRunning] = useState(false);
-	const [lastUpdateTime, setLastUpdateTime] = useState<number | null>(null);
-	const [timerStyle, setTimerStyle] = useState({});
+
+	// The radius needs to be half of the width and height if the circle is to be in the center
+	const radius = 90; // SVG circle radius, adjust to match your timer's size
+	const circumference = 2 * Math.PI * radius;
 
 	useEffect(() => {
 		let interval: number | null = null;
 
-		if (timerRunning) {
+		if (timerRunning && timeRemaining > 0) {
 			interval = setInterval(() => {
-				setLastUpdateTime((lastTime) => {
-					const currentTime = Date.now();
-					const elapsed = lastTime ? currentTime - lastTime : 0;
-					const newTimeRemaining = Math.max(timeRemaining - elapsed, 0);
-					const percentageLeft = ((newTimeRemaining / initialTime) * 100).toFixed(2);
-					setTimeRemaining(newTimeRemaining);
-					updateTimerAnimation(percentageLeft);
-					return currentTime;
-				});
-			}, 40);
+				setTimeRemaining((prevTime) => Math.max(prevTime - 1000, 0));
+			}, 1000);
 		}
 
 		return () => {
@@ -30,24 +24,13 @@ const Timer: React.FC = () => {
 		};
 	}, [timerRunning, timeRemaining]);
 
-	const updateTimerAnimation = (percentageLeft: string) => {
-		const newStyle = {
-			background: `linear-gradient(var(--dark-navy), var(--dark-navy)) content-box no-repeat,
-						 conic-gradient(var(--primary) ${percentageLeft}%, var(--dark-navy) ${percentageLeft}%) border-box`,
-		};
-		setTimerStyle(newStyle);
-	};
+	const strokeDashoffset = ((initialTime - timeRemaining) / initialTime) * circumference;
 
 	const toggleTimer = () => {
-		if (!timerRunning) {
-			setLastUpdateTime(Date.now());
-			setTimerRunning(true);
-		} else {
-			setTimerRunning(false);
-		}
+		setTimerRunning(!timerRunning);
 	};
 
-	const formatTime = (milliseconds: number): string => {
+	const formatTime = (milliseconds: number) => {
 		const minutes = Math.floor(milliseconds / 60000);
 		const seconds = Math.floor((milliseconds % 60000) / 1000);
 		return `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
@@ -55,7 +38,22 @@ const Timer: React.FC = () => {
 
 	return (
 		<section className="timer-container">
-			<div className="timer-animation" style={timerStyle}>
+			<div className="timer">
+				<svg className="timer-svg" viewBox="0 0 200 200">
+					<circle
+						className="timer-circle"
+						stroke="var(--primary)" // Use the CSS variable for color
+						strokeWidth="10"
+						strokeDasharray={circumference}
+						strokeDashoffset={strokeDashoffset}
+						strokeLinecap="round" // Smooths the cap of the stroke
+						fill="none"
+						cx="100"
+						cy="100"
+						r={radius}
+						transform="rotate(-90 100 100)" // Start from the top
+					/>
+				</svg>
 				<div className="timer-inner-container">
 					<h1 id="time">{formatTime(timeRemaining)}</h1>
 					<h3 onClick={toggleTimer} id="time-toggle" className="cursor-pointer">

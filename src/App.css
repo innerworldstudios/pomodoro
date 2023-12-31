@@ -69,13 +69,16 @@ body {
 	background-color: var(--navy);
 	font-family: 'Kumbh Sans', sans-serif;
 	font-weight: bold;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .container {
 	max-width: 410px;
 	display: flex;
 	flex-direction: column;
-	height: 100vh;
 	align-items: center;
 	justify-content: center;
 	margin: 0 auto;

@@ -18,6 +18,11 @@
 	display: none;
 }
 
+.settings-icon {
+	z-index: 2;
+	position: relative;
+}
+
 .settings-container-header {
 	display: flex;
 	justify-content: space-between;

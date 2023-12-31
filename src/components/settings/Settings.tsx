@@ -37,7 +37,7 @@ const Settings = () => {
 			<img
 				src={settingsIcon}
 				alt="Click here for pomodoro settings"
-				className="cursor-pointer"
+				className="cursor-pointer settings-icon"
 				onClick={closeSettings}
 			/>
 			<div id="settings-container" className="settings-container">
